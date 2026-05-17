@@ -1,16 +1,24 @@
-# React + Vite
+# AI Surveillance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This dashboard is the frontend for the AI Surveillance System. It fetches incidents and stats from the backend and displays them in a compact UI.
 
-Currently, two official plugins are available:
+Key behaviors:
+- Polls `http://localhost:8000/incidents` and `http://localhost:8000/incidents/stats` every 5 seconds
+- Shows a live indicator and counts for severity levels
+- Displays a recent incidents table with time, event type, track ID, severity, dwell and zone
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+To run the dashboard:
 
-## React Compiler
+```bash
+cd dashboard
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+By default the dashboard uses `http://localhost:8000` as the API origin. If your backend runs on a different host/port, update the API URLs in `src/App.jsx`.
 
-## Expanding the ESLint configuration
+Notes for development:
+- Styling is inline in `src/App.jsx` for simplicity.
+- Add a management UI to edit `zone.json` and persist zones in the backend if you want dynamic zone control.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+See the repository root README for full project setup and the inference script instructions.
